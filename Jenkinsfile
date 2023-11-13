@@ -4,6 +4,8 @@ pipeline {
         stage('Mostrar en pantalla') {
             steps {
                 echo "Hola mundo desde git"
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/jadema15/demo-11.git']]])
+
             }            
         }
 
@@ -15,6 +17,9 @@ pipeline {
     }
     
     post {
+        always {
+            echo "Siempre";
+        }
         success {
             // Acciones a realizar si el pipeline tiene éxito
             echo '¡Despliegue exitoso!'
