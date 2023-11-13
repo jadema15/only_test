@@ -1,5 +1,9 @@
 pipeline {
     agent any     
+    environment {
+        // Especifica la ruta del ejecutable de Docker en el sistema Windows
+        DOCKER_PATH = 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe'
+    }
     stages {
         stage('Mostrar en pantalla') {
             steps {
@@ -9,10 +13,16 @@ pipeline {
             }            
         }
 
-        stage('Mostrar en pantalla 2') {
+        stage('Construir y Desplegar en Docker') {
             steps {
-                echo "Hola mundo desde git 2"
-            }            
+                script {
+                    // Construir la imagen Docker
+                    bat "\"${DOCKER_PATH}\" build -t nombre_de_la_imagen:tag ."
+
+                    // Ejecutar el contenedor Docker
+                    bat "\"${DOCKER_PATH}\" run -d -p 8080:80 nombre_de_la_imagen:tag"
+                }
+            }
         }
     }
     
