@@ -4,13 +4,13 @@ pipeline {
         stage('Mostrar en pantalla') {
             steps {
                 echo "Hola mundo desde git"
-            }
-              steps {
+            }            
+        }
+
+        stage('Mostrar en pantalla 2') {
+            steps {
                 echo "Hola mundo desde git 2"
-            }
-              steps {
-                echo "Hola mundo desde git 3"
-            }
+            }            
         }
     }
     
