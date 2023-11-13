@@ -5,6 +5,12 @@ pipeline {
             steps {
                 echo "Hola mundo desde git"
             }
+              steps {
+                echo "Hola mundo desde git 2"
+            }
+              steps {
+                echo "Hola mundo desde git 3"
+            }
         }
     }
     
