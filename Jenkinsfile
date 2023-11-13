@@ -20,7 +20,7 @@ pipeline {
                     bat "\"${DOCKER_PATH}\" build -t nombre_de_la_imagen:tag ."
 
                     // Ejecutar el contenedor Docker
-                    bat "\"${DOCKER_PATH}\" run -d -p 8080:80 nombre_de_la_imagen:tag"
+                    bat "\"${DOCKER_PATH}\" run -d -p 8080:70 nombre_de_la_imagen:tag"
                 }
             }
         }
