@@ -12,3 +12,13 @@ RUN apt-get update && \
 # Establece el directorio de trabajo
 WORKDIR /app
 
+# Copia el contenido del repositorio al directorio de trabajo
+COPY . /app
+
+# Expone el puerto (ajusta según las necesidades de tu aplicación Spring Boot)
+EXPOSE 9090
+
+# Comando para ejecutar la aplicación al iniciar el contenedor
+CMD ["java", "-jar", "target/proyecto.jar"]
+
+
